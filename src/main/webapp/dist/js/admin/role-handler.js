@@ -135,7 +135,11 @@ var Handler = {
 		var aChild = $(obj).parents(".panel-heading").siblings(".panel-body").find("input");
 		
 //		console.log(aSibs.length +", "+ aChild.length);
-		aChild.prop("checked", true);
+		if($(obj).val() == "on") {
+			aChild.prop("checked", true);
+		} else {
+			aChild.prop("checked", false);
+		}
 		
 	},
 };
