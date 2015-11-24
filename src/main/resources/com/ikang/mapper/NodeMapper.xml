@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.NodeMapper">
+	<select id="selectAll" resultType="Node">
+		select
+			id, name, remark, address, title, pid
+		from t_node
+	</select>
+	
+	<select id="getNodeById" resultType="Node">
+		select 
+			id, name, remark, address, title, pid
+		from t_node
+		where id = #{id}
+	</select>
+	
+	<select id="getNodeByPid" resultType="Node">
+		select 
+			id, name, remark, address, title, pid
+		from t_node
+		where pid = #{pid}
+	</select>
+	
+	<insert id="insertNode" parameterType="Node">
+		insert into t_node (name, remark, address, title, pid)
+		values(#{name}, #{remark}, #{address}, #{title}, #{pid})
+	</insert>
+	
+	<update id="updateNode" parameterType="Node">
+		update t_node set
+			name = #{name},
+			remark = #{remark},
+			address = #{address},
+			title = #{title},
+			pid = #{pid}
+		where id = #{id}
+	</update>
+
+	<delete id="deleteNode">
+		delete from t_node
+		where id = #{id}
+	</delete>
+
+</mapper>

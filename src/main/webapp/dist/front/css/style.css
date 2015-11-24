@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+
+ul { text-align: left;}
+
+.global {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.adminbutton {
+	height: 50px;
+	width: 200px;
+	border-radius: 1;
+	background: #f0f0f0;
+	border: none;
+	color: #FF4200;
+	font-size: 16px;
+	font-weight: lighter;
+}
+.btn-primary:hover {
+    color: #FFF;
+    background-color: #FF4200;
+    border-color: #FF4200;
+}
+.bk{
+	height: 50px;
+	width: 200px;
+	border-radius: 1;
+}
+
+#div_hospital { width: 400px; float: left;}
+.order-option { width: 500px; float: left}
+.order-option .list-group { margin-left: 20px;}
+
+
+
+

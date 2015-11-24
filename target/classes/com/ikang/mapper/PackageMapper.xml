@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.PackageMapper">
+	<select id="selectAllPackage" resultType="Package">
+		select 
+			t_tcid as "id",
+			t_tcname as "name",
+			t_description as "description",
+			t_hid as "hid"
+		from t_taocan
+	</select>
+	
+	<select id="getPackageById" resultType="Package">
+		select
+			t_tcid as "id",
+			t_tcname as "name",
+			t_description as "description",
+			t_hid as "hid"
+		from t_taocan
+		where t_tcid = #{id}
+	</select>
+	
+	<select id="getCount" resultType="INTEGER">
+		select count(*) from t_taocan
+	</select>
+	
+	<insert id="insertPackage" parameterType="Package" useGeneratedKeys="true" keyProperty="id">
+		insert into t_taocan(t_tcname, t_description, t_hid)
+		values(#{name}, #{description}, #{hid})
+	</insert>
+	
+	<update id="updatePackage" parameterType="Package">
+		update t_taocan set
+			t_tcname = #{name},
+			t_description = #{description},
+			t_hid = #{hid}
+		where t_tcid = #{id}
+	</update>
+	
+	<delete id="deletePackage">
+		delete from t_taocan where t_tcid = #{id}
+	</delete>
+</mapper>

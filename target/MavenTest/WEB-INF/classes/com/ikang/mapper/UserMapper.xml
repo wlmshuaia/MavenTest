@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.mapper.UserMapper">
+  <select id="selectUser" resultType="User">
+    select * from user where id = #{id}
+  </select>
+  
+  <!-- Here can get List<User> return. -->
+  <select id="selectAllUser" resultType="User">
+  	select id, username, sex, age, phone, email from user
+  </select>
+  
+  <insert id="insertOneUser" parameterType="User" useGeneratedKeys="true"
+    keyProperty="id">
+  	insert into User (username, password, sex, age, phone, email)
+  	values (#{username}, #{password}, #{sex}, #{age}, #{phone}, #{email})
+  </insert>
+  
+  <update id="updateUser" parameterType="User">
+  	update User set 
+  		username = #{username},
+  		password = #{password},
+  		sex = #{sex},
+  		age = #{age},
+  		phone = #{phone},
+  		email  = #{email}
+  	where id=#{id}
+  </update>
+  
+  <delete id="deleteUser">
+  	delete from User where id = #{id}
+  </delete>
+  
+</mapper>

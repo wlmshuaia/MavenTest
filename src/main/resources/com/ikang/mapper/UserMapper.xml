@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.UserMapper">
+  <select id="selectUser" resultType="User">
+    select id, username, sex, age, phone, email, intro from t_user where id = #{id}
+  </select>
+  
+  <select id="selectUserByName" resultType="User">
+    select id, username, sex, age, phone, email, intro from t_user where username = #{username}
+  </select>
+  
+  <!-- Here can get List<User> return. -->
+  <select id="selectAllUser" resultType="User">
+  	select id, username, sex, age, phone, email, intro from t_user
+  </select>
+  
+  <select id="selectUserLimit" resultType="User">
+  	select id, username, sex, age, phone, email, intro from t_user limit #{0}, #{1}
+  </select>
+  
+  <select id="getCount" resultType="INTEGER">
+  	select count(*) from t_user
+  </select>
+  
+  <insert id="insertOneUser" parameterType="User" useGeneratedKeys="true"
+    keyProperty="id">
+  	insert into t_user (username, password, sex, age, phone, email, intro)
+  	values (#{username}, #{password}, #{sex}, #{age}, #{phone}, #{email}, #{intro})
+  </insert>
+  
+  <update id="updateUser" parameterType="User">
+  	update t_user set 
+  		username = #{username},
+<!--   		password = #{password}, -->
+  		sex = #{sex},
+  		age = #{age},
+  		phone = #{phone},
+  		email  = #{email},
+  		intro = #{intro}
+  	where id=#{id}
+  </update>
+  
+  <delete id="deleteUser">
+  	delete from t_user where id = #{id}
+  </delete>
+  
+</mapper>

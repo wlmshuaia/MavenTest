@@ -1,0 +1,36 @@
+ body { font-size: 1.4rem;}
+        
+.nav-sidebar { background: white; }
+
+.nav-sidebar li ul { border-bottom: rgb(222, 222, 222) 1px solid;}
+
+.menu-first, .menu-second a { color: #5c5c5c;}
+/* 左侧一级菜单 */
+.menu-first { font-weight: bold; border-radius: 4px; margin: 4px 0; border: rgb(222, 222, 222) 1px solid;}
+.menu-first .icon { float: left; margin: 1px 5px;}
+.menu-first span { float: right;}
+/* 左侧二级菜单 */
+.menu-second { text-indent: 30px; }
+
+/* 字体图标 */
+@font-face {
+  font-family: 'iconfont';
+  src: url('../../fonts/font_taobao/iconfont.eot'); /* IE9*/
+  src: url('../../fonts/font_taobao/iconfont.eot?#iefix') format('embedded-opentype'), 
+  url('../../fonts/font_taobao/iconfont.woff') format('woff'),
+  url('../../fonts/font_taobao/iconfont.ttf') format('truetype'), 
+  url('../../fonts/font_taobao/iconfont.svg#iconfont') format('svg'); 
+}
+
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yiyuan:before { content: "\e602"; }
+.icon-weibiaoti1:before { content: "\e621"; }
+

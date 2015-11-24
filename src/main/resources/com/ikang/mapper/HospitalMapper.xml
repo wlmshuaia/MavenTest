@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.HospitalMapper">
+	<select id="selectAllHospital" resultType="Hospital">
+		select 
+			t_id as "id",
+			t_name as "name",
+			t_address as "address"
+		from t_hospital
+	</select>
+	
+	<select id="getHospitalById" resultType="Hospital">
+		select
+			t_id as "id",
+			t_name as "name",
+			t_address as "address"
+		from t_hospital
+		where t_id = #{id}
+	</select>
+	
+	<select id="getCount" resultType="INTEGER">
+		select count(*) from t_hospital
+	</select>
+	
+	<insert id="insertHospital" parameterType="Hospital" useGeneratedKeys="true" keyProperty="id">
+		insert into t_hospital(t_name, t_address)
+		values(#{name}, #{address})
+	</insert>
+	
+	<update id="updateHospital" parameterType="Hospital">
+		update t_hospital set
+			t_name = #{name},
+			t_address = #{address}
+		where t_id = #{id}
+	</update>
+	
+	<delete id="deleteHospital">
+		delete from t_hospital where t_id = #{id}
+	</delete>
+	
+</mapper>

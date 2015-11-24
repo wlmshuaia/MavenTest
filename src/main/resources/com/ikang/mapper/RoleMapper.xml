@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.RoleMapper">
+	<select id="selectAll" resultType="Role">
+		select 
+			id, name, remark, isOpen
+		from t_role
+	</select>
+	
+	<select id="getRoleById" resultType="Role">
+		select 
+			id, name, remark, isOpen
+		from t_role
+		where id = #{id}
+	</select>
+	
+	<insert id="insertRole" parameterType="Role">
+		insert into t_role (name, remark, isOpen)
+		values(#{name}, #{remark}, #{isOpen})
+	</insert>
+	
+	<delete id="deleteRole">
+		delete from t_role
+		where id = #{id}
+	</delete>
+	
+	<update id="updateRole" parameterType="Role">
+		update t_role set
+			name = #{name},
+			remark = #{remark},
+			isOpen = #{isOpen}
+		where id = #{id}
+	</update>
+	
+</mapper>

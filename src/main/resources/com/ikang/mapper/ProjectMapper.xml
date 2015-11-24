@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.ProjectMapper">
+	<select id="selectAllProject" resultType="Project">
+		select  
+			xm_id as "id", 
+			xm_name as "name", 
+			xm_price as "price",
+			xm_sex as "sex", 
+			xm_description as "description"
+			from t_xm 
+	</select>
+	
+	<select id="getProjectById" resultType="Project">
+		select 
+			xm_id as "id", 
+			xm_name as "name", 
+			xm_price as "price",
+			xm_sex as "sex", 
+			xm_description as "description"
+			from t_xm 
+		where xm_id = #{id}
+	</select>
+	
+	<insert id="insertOneProject" parameterType="Project" useGeneratedKeys="true" keyProperty="id">
+		insert into t_xm (xm_name, xm_price, xm_sex, xm_description)
+		values (#{name}, #{price}, #{sex}, #{description})
+	</insert>
+	
+	<update id="updateProject" parameterType="Project">
+		update t_xm set 
+			xm_name = #{name},
+			xm_price = #{price},
+			xm_sex = #{sex},
+			xm_description = #{description}
+		where xm_id = #{id}
+	</update>
+	
+	<delete id="deleteProject">
+		delete from t_xm where xm_id = #{id}
+	</delete>
+	
+</mapper>

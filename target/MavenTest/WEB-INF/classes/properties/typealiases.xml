@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeAliases>
+	<typeAlias type="com.ikang.bean.User" alias="User"/>
+</typeAliases>

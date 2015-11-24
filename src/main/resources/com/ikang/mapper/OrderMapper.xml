@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ikang.dao.OrderMapper">
+	<resultMap type="Order" id="resultMap">
+		<result property="ordertime" column="t_yjsj" javaType="java.sql.Date" jdbcType="DATE"/>
+		<result property="createtime" column="t_gtime" javaType="java.sql.Date" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<select id="selectAllOrder" resultType="Order" resultMap="resultMap">
+		select 
+			t_orderid as "id",
+			t_username as "username",
+			t_pack as "pack",
+			t_price as "price",
+			t_ostatus as "status",
+			t_yjsj as "ordertime",
+			t_gtime as "createtime",
+			t_paytype as "paytype",
+			t_hospital as "hospital",
+			t_project as "project"
+		from t_order
+	</select>
+	
+	<insert id="insertOrder" parameterType="Order" useGeneratedKeys="true" keyProperty="id">
+		insert into t_order (t_username, t_pack, t_price, t_yjsj, t_ostatus, t_gtime, t_paytype, t_hospital, t_project)
+		values(#{username}, #{pack}, #{price}, #{ordertime}, #{status}, #{createtime}, #{paytype}, #{hospital}, #{project})
+	</insert>
+	
+<!-- 	<select id="getOrderById" resultType="Order">
+		select
+			t_tcid as "id",
+			t_tcname as "name",
+			t_description as "description",
+			t_hid as "hid"
+		from t_taocan
+		where t_tcid = #{id}
+	</select>
+	
+	<select id="getCount" resultType="INTEGER">
+		select count(*) from t_taocan
+	</select>
+	
+	
+	<update id="updateOrder" parameterType="Order">
+		update t_taocan set
+			t_tcname = #{name},
+			t_description = #{description},
+			t_hid = #{hid}
+		where t_tcid = #{id}
+	</update>
+	
+	<delete id="deleteOrder">
+		delete from t_taocan where t_tcid = #{id}
+	</delete> -->
+</mapper>
